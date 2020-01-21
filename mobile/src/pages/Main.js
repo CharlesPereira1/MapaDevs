@@ -41,18 +41,17 @@ export default function Main({ navigation }) {
       params: {
         latitude,
         longitude,
-        techs
+        techs,
       }
     });
 
-    console.log(response.data.devs);
+    //console.log(response.data);
 
     setDevs(response.data.devs)
 
   }
 
   function handleRegionChanged(region) {
-    console.log(region);
     setCurrentRegion(region);
   }
 
@@ -71,8 +70,8 @@ export default function Main({ navigation }) {
           <Marker
             key={dev._id}
             coordinate={{
-              latitude: dev.location.coordinates[0],
-              longitude: dev.location.coordinates[1],
+              longitude: dev.location.coordinates[0],
+              latitude: dev.location.coordinates[1],
             }}
           >
             <Image
@@ -96,7 +95,7 @@ export default function Main({ navigation }) {
       <View style={styles.searchForm}>
         <TextInput
           style={styles.searchInput}
-          placeholder="Buscar devs por techs"
+          placeholder="Buscar devs por techs..."
           placeholderTextColor="#999"
           autoCapitalize="words"
           autoCorrect={false}
@@ -166,7 +165,7 @@ const styles = StyleSheet.create({
       width: 4,
       height: 4,
     },
-    elevation: 2,
+    elevation: 4,
   },
 
   loadButton: {
